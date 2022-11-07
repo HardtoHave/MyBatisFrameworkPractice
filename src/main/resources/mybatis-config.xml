@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!--another name for class-->
+        <typeAlias type="org.example.mybatis.pojo.User" alias="user"></typeAlias>
+        <!--another name for classes under the package-->
+        <package name="org.example.mybatis.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <!--database environment-->
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC"/>
+                <property name="username" value="guest"/>
+                <property name="password" value="guest123"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--mybatis mapping file-->
+    <mappers>
+        <mapper resource="mappers/UserMapper.xml"/>
+        <mapper resource="mappers/SelectMapper.xml"/>
+        <mapper resource="mappers/SpecialSQLMapper.xml"/>
+    </mappers>
+</configuration>
