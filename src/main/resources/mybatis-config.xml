@@ -9,7 +9,7 @@
     </settings>
     <typeAliases>
         <!--another name for class-->
-        <typeAlias type="org.example.mybatis.pojo.User" alias="user"></typeAlias>
+<!--        <typeAlias type="org.example.mybatis.pojo.User" alias="user"></typeAlias>-->
         <!--another name for classes under the package-->
         <package name="org.example.mybatis.pojo"/>
     </typeAliases>

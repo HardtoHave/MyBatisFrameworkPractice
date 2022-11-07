@@ -3,5 +3,49 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.mybatis.mapper.EmpMapper">
-
+    <resultMap id="empResultMap" type="Emp">
+        <id column="emp_id" property="empId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+    </resultMap>
+    <select id="getEmpByEmpId" resultMap="empResultMap">
+        select * from t_emp where emp_id= #{empId}
+    </select>
+    <select id="getEmpByEmpIdOld" resultType="Emp">
+<!--    select emp_id empId, emp_name empName, age, gender from t_emp where emp_id= #{empId}-->
+        select * from t_emp where emp_id= #{empId}
+    </select>
+    <resultMap id="empAndDeptResultMap" type="Emp">
+        <id column="emp_id" property="empId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+<!--        <result column="dept_id" property="dept.deptId"/>-->
+<!--        <result column="dept_name" property="dept.deptName"/>-->
+        <association property="dept" javaType="Dept">
+            <id column="dept_id" property="deptId"/>
+            <result column="dept_name" property="deptName"/>
+        </association>
+    </resultMap>
+    <select id="getEmpAndDeptByEmpId" resultMap="empAndDeptResultMap">
+        select t_emp.*, t_dept.*
+        from t_emp
+        left join t_dept
+        on t_emp.dept_id=t_dept.dept_id
+        where t_emp.empId=#{empId}
+    </select>
+    <resultMap id="empAndDeptByStepResultMap" type="Emp">
+        <id column="emp_id" property="empId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <association property="dept"
+                     select="org.example.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
+                     column="dept_id">
+        </association>
+    </resultMap>
+    <select id="getEmpAndDeptByEmpStepOne" resultMap="empAndDeptByStepResultMap">
+        select * from t_temp where emp_id=#{empId}
+    </select>
 </mapper>
