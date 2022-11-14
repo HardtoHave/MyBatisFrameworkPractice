@@ -40,7 +40,7 @@
         <result column="emp_name" property="empName"/>
         <result column="age" property="age"/>
         <result column="gender" property="gender"/>
-        <association property="dept"
+        <association property="dept" fetchType="lazy"
                      select="org.example.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
                      column="dept_id">
         </association>
