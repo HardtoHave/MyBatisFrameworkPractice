@@ -1,7 +1,6 @@
 package org.example.mybatis.test;
 
 import org.apache.ibatis.session.SqlSession;
-import org.example.mybatis.mapper.SelectMapper;
 import org.example.mybatis.mapper.SpecialSQLMapper;
 import org.example.mybatis.pojo.User;
 import org.example.mybatis.utils.SqlSessionUtil;
