@@ -5,17 +5,28 @@
 <mapper namespace="org.example.mybatis.mapper.DynamicSQLMapper">
     <select id="getEmpByConditions" resultType="Emp">
         select * from t_emp
-        <where>
+<!--        <where>-->
+<!--            <if test="empName!=null and empName!=''">-->
+<!--                emp_name=#{empName}-->
+<!--            </if>-->
+<!--            <if test="age!=null and age!=''">-->
+<!--                and age=#{age}-->
+<!--            </if>-->
+<!--            <if test="gender!=null and gender!=''">-->
+<!--                and gender=#{gender}-->
+<!--            </if>-->
+<!--        </where>-->
+        <trim prefix="where" suffixOverrides="and">
             <if test="empName!=null and empName!=''">
-                emp_name=#{empName}
+                emp_name=#{empName} and
             </if>
             <if test="age!=null and age!=''">
-                and age=#{age}
+                age=#{age} and
             </if>
             <if test="gender!=null and gender!=''">
-                and gender=#{gender}
+                gender=#{gender}
             </if>
-        </where>
+        </trim>
 
     </select>
 </mapper>
