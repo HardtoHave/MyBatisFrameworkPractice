@@ -23,8 +23,8 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC"/>
-                <property name="username" value="root"/>
-                <property name="password" value="12qwaszxLIJI~XUE"/>
+                <property name="username" value="guest"/>
+                <property name="password" value="guest123"/>
             </dataSource>
         </environment>
     </environments>
