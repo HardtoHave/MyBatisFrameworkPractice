@@ -160,4 +160,15 @@ public class Emp {
     public void setDept(String dept) {
         this.dept = dept == null ? null : dept.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", dept='" + dept + '\'' +
+                '}';
+    }
 }

@@ -13,6 +13,9 @@
         <!--another name for classes under the package-->
         <package name="org.example.mybatis.pojo"/>
     </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
     <environments default="development">
         <!--database environment-->
         <environment id="development">
